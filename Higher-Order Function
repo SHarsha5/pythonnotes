@@ -1,0 +1,38 @@
+1. Definition
+A Higher-Order Function is a function that does at least one of the following:
+
+Takes another function as an argument.
+
+Returns another function as its result.
+
+In simple words, a function that accepts another function as an argument or returns a function is called a Higher-Order Function.
+----------------------------------
+def square(n):
+    return n*n
+    
+def cube(n):
+    return n*n*n
+    
+def operate(n, operation): 
+    result = operation(n)
+    return result
+n=5
+result = operate(n, cube)
+print(result)
+
+-------------------------------
+
+def square(n):
+    return n*n
+    
+def cube(n):
+    return n*n*n
+    
+def operate(nums, operation): 
+    
+    for i in nums:
+        print(operation(i))
+        
+n=[5,6,7]
+operate(n, cube)
+--------------------------------
