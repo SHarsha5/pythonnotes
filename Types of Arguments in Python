@@ -1,0 +1,52 @@
+What are Arguments?
+Definition: Arguments are values passed to a function when calling it. These values are received by the function's parameters and are used to perform operations.
+
+Python supports different types of arguments:
+
+Default Arguments
+Variable-Length Arguments (*args)
+Positional Arguments
+Keyword Arguments
+Keyword Variable-Length Arguments (**kwargs)
+
+arguments
+
+def add(num1, num2 =5): #default argument
+    return num1 + num2
+    
+print(add(5))
+
+def add(num1, *num2): # variable length argument
+    print(num1)
+    print(num2)  # variable length argument returns the tuple
+    sum = num1
+    for i in num2:
+        sum+=i
+        
+    return sum
+    
+
+print(add(2,3,4,5))
+
+def person(name, age):
+    print("name :", name)
+    print("age :", age)
+    
+person(30, 'Harsha')
+
+def person(name, age):
+    print("name :", name)
+    print("age :", age)
+    
+person(age = 30,name= 'Harsha') # keyword arguments
+
+
+def person(name, **kwlargu): #keyword variable length argument
+    print("name :", name)
+    print(kwlargu)  # this will return a dictionary 
+    
+    for k,v in kwlargu.items():
+        print(k, ":", v)
+    
+person(name='Harsha', age = 30, loc = 'pune', sing = 'king')
+
