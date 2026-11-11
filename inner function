@@ -1,0 +1,17 @@
+Nested function → Function inside another function.
+
+return inner → Returns a function.
+
+return inner() → Executes a function.
+
+Calling a returned function → Function returned by another function can be executed later.
+
+def outer():
+    print("Its an outer")
+    
+    def inner(n):
+        print("Its an inner:", n)
+    
+    return inner
+something = outer()
+something(5)
