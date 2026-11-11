@@ -1,0 +1,16 @@
+A global variable is a variable declared outside all functions. It can be accessed throughout the program, including inside functions (for reading).
+A local variable is a variable declared inside a function. It can be accessed only within that function.
+global is a keyword used to declare that a variable inside a function refers to the global variable.
+globals() is a built-in function that returns a dictionary of the current global symbol table.
+
+# global vs local variable 
+
+a = 10 # global variable
+
+def something():
+    a=15 # local variable
+    globals()['a'] = 20 
+    print("inside : ",a)
+    
+something()
+print("outside : ",a)
