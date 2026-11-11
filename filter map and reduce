@@ -20,3 +20,35 @@ odd= list(filter(lambda n: n%2 !=0,lis1))
 print(odd)
 
 ------------------------------------------------------------
+MAP
+The map() function is a built-in Python function that applies a given function to every element in an iterable (such as a list or tuple) and returns the transformed results as an iterator.
+
+In simple words, map() is used to perform an operation on every element of a list.
+
+Syntax:
+map(function, iterable)
+
+REDUCE
+The reduce() function applies a function cumulatively to the elements of an iterable and reduces them into a single value.
+
+In simple words, reduce() is used to combine all elements of a list into one final result.
+
+It is available in the functools module.
+
+Syntax:
+from functools import reduce
+reduce(function, iterable)
+
+
+Example:
+from functools import reduce
+
+lis1= [4,3,2,5,6,7,8,9]
+
+evens = list(filter(lambda n : n%2 ==0 , lis1))
+doubles = list(map(lambda n : n *2, evens))
+Total = reduce(lambda a,b: a+b,doubles)
+
+print("evens : ", evens)
+print("doubles : ", doubles)
+print("Total :", Total)
