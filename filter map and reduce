@@ -1,0 +1,22 @@
+FILTER
+The filter() function is a built-in Python function used to filter elements from an iterable (such as a list or tuple) based on a given condition.
+It returns only those elements for which the condition evaluates to True.
+
+Syntax:
+filter(function, iterable)
+
+function – A function that checks a condition.
+iterable – A list, tuple, or other iterable containing elements.
+
+lis1 = [4,5,7,3,10,98,56,43,1]
+
+def is_even(n):
+     return n%2 == 0 
+    
+is_even =  lambda n: n%2 ==0
+even = list(filter(is_even,lis1))
+
+odd= list(filter(lambda n: n%2 !=0,lis1))
+print(odd)
+
+------------------------------------------------------------
