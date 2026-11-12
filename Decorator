@@ -1,0 +1,31 @@
+A decorator is a function that takes another function as an argument, adds or modifies its functionality, and returns a function without modifying the original function's code.
+In simple words, a decorator is used to add extra functionality to an existing function.
+def log(func):
+    def wrap(*args):
+        print("values:",args)
+        result=func(*args)
+        print("result:",result)
+        return result
+    return wrap
+    
+def greater_first(func):
+    def wrap(a,b):
+        if(a<b):
+            a,b=b,a
+        return func(a,b)
+    return wrap
+ 
+@log   
+@greater_first
+def sub(a,b):
+    return a-b
+ 
+@log   
+@greater_first
+def divide(a,b):
+    return a/b
+
+result1=divide(2,4)
+print(result1)
+result2=sub(2,4)
+print(result2)
