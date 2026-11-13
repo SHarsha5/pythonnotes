@@ -1,0 +1,20 @@
+A Class is a blueprint or template used to create objects.
+
+An Object is an instance of a class.
+We create an object by calling the class.
+
+example 1:
+class computer:
+
+    def config(self):
+        print("i7","16GB","1TB")
+
+
+com1 =  computer()
+com2 = computer()
+
+computer.config(com1)
+computer.config(com2)
+(or)
+com1.config()
+
