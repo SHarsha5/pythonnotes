@@ -50,3 +50,6 @@ com2 = computer("i9","96GB","2TB")
 
 com1.config()
 com2.config()
+
+NOTE : whenever we call a class its going to call the init method by default
+
