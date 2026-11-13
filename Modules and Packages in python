@@ -1,0 +1,29 @@
+# A Module is simply a Python file (.py) that contains Python code, such as functions, variables, and classes.
+def add():
+    return "addition"
+
+def sub():
+    return "subtraction"
+
+# A Package is a way of organizing related Python modules inside a directory (folder).
+# In simple words:
+# Module = Python file.
+# Package = Folder containing Python modules.
+------------------------------------------------------------------------------------
+import calc
+
+result = calc.add()
+print("result:", result)
+
+----------------------------------------------------------------------------------------
+# from calc import * (To import all functions from the module)
+from calc import sub, add # To import specific function from the module
+
+result = sub()
+print(result)
+
+-------------------------------------------------------------------------------------------
+from calculaator.calc import * # moudle can be called if it is outside of a package
+
+result = add()
+print("result : ", result)
