@@ -53,3 +53,5 @@ com2.config()
 
 NOTE : whenever we call a class its going to call the init method by default
 
+
+A Constructor in Python is a special method that is automatically called when an object is created. It is used to initialize an object's variables.
