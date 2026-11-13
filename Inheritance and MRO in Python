@@ -1,0 +1,110 @@
+Inheritance is an OOP concept where a child class can reuse the variables and methods of a parent class.
+Parent class: The class whose properties and methods are inherited.
+Child class: The class that inherits from the parent class.
+
+Single level inheritance:-
+class A:
+    def f1(self):
+        print("f1 works")
+
+    def f2(self):
+        print("f2.works")
+
+class B(A):
+    def f3(self):
+            print("f3 works")
+    
+    def f4(self):
+            print("f4.works")
+
+
+obj1 = B()
+obj1.f1()
+
+
+Multi level inheritance:-
+class A:
+    def f1(self):
+        print("f1 works")
+
+    def f2(self):
+        print("f2.works")
+
+class B(A): #inheritance
+    def f3(self):
+            print("f3 works")
+    
+    def f4(self):
+            print("f4.works")
+
+class C(B):
+     def f5(self):
+        print("f5 works")
+     
+
+obj1 = C()
+obj1.f5()
+
+
+Multiple inheritance:-
+
+class A:
+    def f1(self):
+        print("f1 works")
+
+    def f2(self):
+        print("f2.works")
+
+class B:
+    def f3(self):
+            print("f3 works")
+    
+    def f4(self):
+            print("f4.works")
+
+class C(A,B):
+     def f5(self):
+        print("f5 works")
+     
+
+obj1 = C()
+obj1.f2()
+obj1.f3()
+
+MRO
+------------
+MRO stands for Method Resolution Order.
+It determines the order in which Python searches for a method or attribute when a class uses inheritance.
+
+
+
+class A:
+    def f1(self):
+        print("f1 works")
+
+    def f2(self):
+        print("f2.works")
+
+    def show(self):
+        print("from class A")
+
+class B:
+    def f3(self):
+        print("f3 works")
+    
+    def f4(self):
+        print("f4.works")
+
+    def show(self):
+        print("from class A")
+
+class C(A,B):
+     def f5(self):
+        print("f5 works")
+     
+
+obj1 = C()
+obj1.show()
+
+Python will figure out the which class is first and then prints it if thier are same methods.
+
