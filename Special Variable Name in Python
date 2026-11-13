@@ -1,0 +1,54 @@
+In Python, special variable names are variables that have predefined meanings or special purposes in Python.
+
+What is __name__ in Python?
+__name__ is a built-in special variable that tells us how a Python file is being executed.
+
+It has two important behaviours:
+When a Python file is executed directly, __name__ gets the value "__main__".
+When a Python file is imported into another file, __name__ gets the module's name.
+
+calc.py
+---------
+def add():
+    return "addition"
+
+def sub():
+    return "subtraction"
+print(__name__)
+
+output :- __main__
+
+demo1.py
+-----------
+from calc import *
+
+print(__name__)
+
+output :- calc
+          __main__
+
+because the demo1.py file will calls all the function/statement in the calc.py module
+--------------------------
+calc.py
+--------------
+def add()
+    return "addition"
+
+def sub():
+    return "subtraction"
+if __name__ == "__main__":  # inorder to avoide all the function or satements to be called this is used
+    print(add())
+    print(sub())
+print(__name__)
+
+demo1.py
+------
+import calc
+
+result = calc.add()
+print("result:", result)
+print(__name__)
+
+if __name__ == "__main__": ensures that the statements inside the if block execute only when the Python file is run directly, not when it is imported into another file.
+
+When imported, __name__ contains the module name (e.g., "calc"), so the condition becomes False.
