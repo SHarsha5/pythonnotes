@@ -108,3 +108,31 @@ obj1.show()
 
 Python will figure out the which class is first and then prints it if thier are same methods.
 
+
+
+init and super Method with Inheritance
+--------------------------------------------
+
+__init__: A special method (constructor) that Python automatically calls when an object is created. It initializes the object’s instance variables.
+
+super(): A built-in function that returns a proxy object giving access to methods of the parent class (following the Method Resolution Order). 
+It is used in a child class to call the parent’s __init__ or other methods without naming the parent explicitly.
+
+class A:
+    def __init__(self):
+        print("init from A")
+
+    def f1(self):
+        print("f1 works")
+
+
+class B(A):
+    def __init__(self):
+        super().__init__() #Supper method is used to inherite the method of the parent class even the same method present in the child class
+        print("init from B")
+
+    def f2(self):
+        print("f2 works")
+
+obj1= B()
+obj1.f1()
