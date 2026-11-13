@@ -52,6 +52,7 @@ com1.config()
 com2.config()
 
 NOTE : whenever we call a class its going to call the init method by default
+In Python, self is used to refer to the current object of a class. It allows us to access that object's instance variables and methods.
 
 
 A Constructor in Python is a special method that is automatically called when an object is created. It is used to initialize an object's variables.
