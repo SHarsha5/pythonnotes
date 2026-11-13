@@ -1,0 +1,56 @@
+their are 2 type of variable:
+1. class variable
+2. instance variable
+
+their are 3 types of methiods:
+1, instance method
+2. class method
+3. static method
+
+1. instance method:-
+An instance method works with individual object data (instance variables).
+It takes self as its first parameter.
+It can access both instance variables and class variables.
+
+2. class method:-
+A class method works with class-level data.
+It takes cls as its first parameter.
+We use the @classmethod decorator to define it.
+It can access and modify class variables.
+
+3. static method:-
+A static method does not require self or cls.
+It does not directly depend on instance or class variables.
+We use the @staticmethod decorator.
+It is used for utility or helper operations related to the class.
+
+example:-
+
+class computer:
+
+    brand = "HP"  # class variable
+    def __init__(self, cpu, ram, ssd): #instance method
+        self.cpu = cpu  #instance variable
+        self.ram = ram
+        self.ssd = ssd
+
+    def config(self): # insatcne method
+        print("config : ", self.cpu, self.ram, self.ssd)
+
+    @classmethod
+    def info(cls):  # To return the class varible to an object or to treat it with the object need to use class method along with the decorator
+        return cls.brand
+
+    @staticmethod
+    def gb_to_byte(value): # This is a static method where their no relationship with the class method and it static need to be utilized with decorator
+        print(value* (1024 ** 3))
+    
+com1 = computer("i5","16GB","512GB")
+com2 = computer("i9","96GB","2TB")
+
+com1.config()
+com2.config()
+
+print(computer.info())
+
+computer.gb_to_byte(16)
