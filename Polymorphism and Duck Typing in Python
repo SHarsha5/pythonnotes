@@ -1,0 +1,36 @@
+Polymorphism in Python
+means one name, many forms.
+In Python, polymorphism allows the same method or function to behave differently depending on the object that calls it.
+
+class laptop:
+    
+    def build(self): #same function with different functionality
+        print("build by laptop")
+        
+class desktop:
+    def build(self): #same function with different functionality
+        print("build by desktop")
+        
+class developer:
+    
+    def code(self, machine):
+        print("write code")
+        machine.build() #same function with different functionality
+        
+l =  laptop()
+d = desktop()
+dev1 = developer()
+
+dev1.code(d) #depending on the object that calls it.
+
+
+Duck Typing is a programming concept in Python where an object's behavior matters more than its actual class or type.
+
+It comes from the famous saying:
+
+"If it walks like a duck and quacks like a duck, then it must be a duck."
+
+In Python, this means:
+
+If an object has the required methods or behavior, Python allows us to use it, regardless of its class.
+
