@@ -1,0 +1,27 @@
+Exception Handling: A mechanism in Python to detect and respond to runtime errors (exceptions) so the program doesn’t crash abruptly. It uses the keywords try, except, else, finally, and raise.
+
+try: Contains code that might raise an exception.
+except: Handles the exception if one occurs.
+else: Runs only if no exception occurred in the try block.
+finally: Always runs, whether or not an exception occurred (used for cleanup).
+raise: Used to trigger an exception manually.
+
+
+print("Resource opened successfully")
+
+try:
+    a = int(input("enter the numerator : "))
+    b = int(input("enter the denominator : "))
+    result = a/b
+    print(result)
+except ZeroDivisionError as zed:
+    print("an error occured due the zero division : ",zed)
+except ValueError as v:
+    print("an error due to invalid character : ", v)
+except Exception as e:
+    print("an error occured : ", e)
+
+finally:
+    print("Resource closed")
+
+print("check out")
