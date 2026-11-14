@@ -1,0 +1,43 @@
+Method overloading:- Method overloading is a feature in which multiple methods have the same name but different parameters (different number or types of arguments) to perform different operations.
+Operator overloading :- Operator Overloading means giving additional meaning to existing operators based on the objects being used.
+
+
+class game:
+    
+    def __init__(self, name, points):
+        self.name = name
+        self.points = points
+        
+    def __str__(self): #this will override the str method method
+        return f'{self.name}:{self.points}'
+        
+    def __gt__(self, other): # overloading the operator
+        return self.points > self.other
+    
+player1 = game('Harsha', 100)
+player2 = game('Hu', 50)
+
+print(player1)
+print(player2)
+
+if(player1.points > player2.points):
+    print("player1", f'{player1.name}' ,"is the winner")
+else:
+    print("player2", f'{player1.name}' , " is the winner")
+
+
+Methode overriding:-
+Method overriding is a feature in which a child class provides its own implementation of a method that is already defined in its parent class.
+
+class A:
+    def show(self):
+        print("build A")
+        
+class B(A):
+    def show(self):
+        print(" build B")
+        super().show()
+        
+        
+obj1=B()
+obj1.show()
