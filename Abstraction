@@ -1,0 +1,126 @@
+An abstract class is a class that cannot be instantiated directly and is designed to be inherited by other classes.
+It acts as a blueprint for child classes.
+In Python, we create abstract classes using the ABC class from the abc module.
+
+An abstract method is a method declared in an abstract class but without a required concrete implementation in that class.
+Child classes are required to implement inherited abstract methods before they can be instantiated.
+In Python, we use the @abstractmethod decorator.
+
+Abstract classes are not required to make code work. They are used to enforce rules, maintain consistency, and make large applications easier to manage.
+
+Let's understand using your Payment Gateway example.
+
+1. Without an Abstract Class
+Your code can be written like this:
+
+
+python
+class CardPay:
+    def pay(self):
+        print("Paid using Card")
+
+
+class UpiPay:
+    def pay(self):
+        print("Paid using UPI")
+
+
+class Purchase:
+    def __init__(self, gateway):
+        self.gateway = gateway
+
+    def checkout(self):
+        print("Checkout started")
+        self.gateway.pay()
+
+
+p1 = Purchase(CardPay())
+p2 = Purchase(UpiPay())
+
+p1.checkout()
+p2.checkout()
+Output:
+
+
+text
+Checkout started
+Paid using Card
+Checkout started
+Paid using UPI
+It works perfectly!
+
+But there is one problem.
+
+2. What happens if a developer forgets to implement the pay() method?
+Imagine another developer adds a new payment method:
+
+
+python
+class NetBanking:
+    def payment(self):
+        print("Paid using Net Banking")
+
+
+p3 = Purchase(NetBanking())
+p3.checkout()
+Output:
+
+
+text
+Checkout started
+AttributeError: 'NetBanking' object has no attribute 'pay'
+Why?
+
+Because the developer accidentally wrote payment() instead of pay().
+
+Python doesn't check this when creating the NetBanking object. The error occurs only when checkout() calls pay().
+
+3. Now Let's Use an Abstract Class
+
+python
+from abc import ABC, abstractmethod
+
+class PaymentGateway(ABC):
+
+    @abstractmethod
+    def pay(self):
+        pass
+
+
+class CardPay(PaymentGateway):
+    def pay(self):
+        print("Paid using Card")
+
+
+class UpiPay(PaymentGateway):
+    def pay(self):
+        print("Paid using UPI")
+
+
+class NetBanking(PaymentGateway):
+    def payment(self):
+        print("Paid using Net Banking")
+Now try:
+
+
+python
+p3 = NetBanking()
+Output:
+
+
+text
+TypeError: Can't instantiate abstract class NetBanking
+with abstract method pay
+Important benefit
+Python catches the missing implementation when you try to create the object, rather than waiting until checkout.
+
+4. Why Do We Use Abstract Classes and Methods?
+There are four major benefits:
+
+Enforcing rules: Every child class must implement required abstract methods before it can be instantiated.
+
+Maintaining consistency: All payment classes follow the same structure.
+
+Avoiding mistakes: Helps catch missing method implementations early.
+
+Easy maintenance: When multiple developers work on a large project, everyone follows the same design.
